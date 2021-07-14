@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.less';
+import ListContainer from './Containers/List/ListContainer'
+import { Layout } from 'antd';
 
+const { Header, Footer, Sider, Content } = Layout;
+const style = {
+  header: { position: 'fixed', zIndex: 1, width: '100%' },
+  content: { margin: '64px 0', height: 'calc(100vh - (64px * 2))', padding: '12px', overflowX: 'hidden', overflowY: 'auto' },
+  footer: { position: 'fixed', zIndex: 1, bottom: '0', width: '100%' }
+}
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Header style={style.header}>Header</Header>
+      <Content style={style.content}>
+        <ListContainer />
+      </Content>
+      <Footer style={style.footer}>Footer</Footer>
+    </Layout>
   );
 }
 
